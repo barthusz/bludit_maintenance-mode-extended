@@ -1,0 +1,12 @@
+{
+	"plugin-data":
+	{
+		"name": "Maintenance mode Extended",
+		"description": "Maintenance mode extended with some more configuration options."
+	},
+
+	"enable-maintenance-mode": "Enable maintenance mode",
+	"backgroundcolor" : "Background color",
+	"textcolor" : "Text color",
+	"message": "Message"
+}

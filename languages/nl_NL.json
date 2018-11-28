@@ -1,0 +1,12 @@
+{
+	"plugin-data":
+	{
+		"name": "Onderhoud modus Extended",
+		"description": "Onderhoudsmodus extended met iets meer configuratie opties"
+	},
+
+	"enable-maintenance-mode": "Schakel de onderhoud modus in",
+	"backgroundcolor" : "Achtergrondkleur",
+	"textcolor" : "Tekstkleur",
+	"message": "Bericht"
+}
