@@ -55,7 +55,6 @@ class pluginMaintenanceModeExtended extends Plugin {
 
 			echo $offline;
 			exit();
-			//exit( $this->getValue('message') );
 		}
 	}
 }
