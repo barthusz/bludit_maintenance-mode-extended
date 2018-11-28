@@ -21,10 +21,10 @@ class pluginMaintenanceModeExtended extends Plugin {
 		$html .= '</div>';
 
 		$html .= '<div>';
-		$html .= '<label>'.$L->get('Enable maintenance mode').'</label>';
+		$html .= '<label>'.$L->get('Enable maintenance mode extended').'</label>';
 		$html .= '<select name="enable">';
-		$html .= '<option value="true" '.($this->getValue('enable')===true?'selected':'').'>Aan</option>';
-		$html .= '<option value="false" '.($this->getValue('enable')===false?'selected':'').'>Uit</option>';
+		$html .= '<option value="true" '.($this->getValue('enable')===true?'selected':'').'>'.$L->get('maintenance-mode-enabled').'</option>';
+		$html .= '<option value="false" '.($this->getValue('enable')===false?'selected':'').'>'.$L->get('maintenance-mode-disabled').'</option>';
 		$html .= '</select>';
 		$html .= '</div>';
 
@@ -39,7 +39,7 @@ class pluginMaintenanceModeExtended extends Plugin {
 		$html .= '</div>';
 
 		$html .= '<div>';
-		$html .= '<label>'.$L->get('Message').'</label>';
+		$html .= '<label>'.$L->get('Message extended').'</label>';
 		$html .= '<input name="message" id="jsmessage" type="text" value="'.$this->getValue('message').'">';
 		$html .= '</div>';
 

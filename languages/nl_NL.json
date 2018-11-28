@@ -5,8 +5,10 @@
 		"description": "Onderhoudsmodus extended met iets meer configuratie opties"
 	},
 
-	"enable-maintenance-mode": "Schakel de onderhoud modus in",
+	"enable-maintenance-mode-extended": "Schakel de onderhoudsmodus in",
+	"maintenance-mode-enabled": "Ingeschakeld",
+	"maintenance-mode-disabled": "Uitgeschakeld",
 	"backgroundcolor" : "Achtergrondkleur",
 	"textcolor" : "Tekstkleur",
-	"message": "Bericht"
+	"message-extended": "Bericht"
 }

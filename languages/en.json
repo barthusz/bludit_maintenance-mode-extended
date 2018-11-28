@@ -5,8 +5,10 @@
 		"description": "Maintenance mode extended with some more configuration options."
 	},
 
-	"enable-maintenance-mode": "Enable maintenance mode",
+	"enable-maintenance-mode-extended": "Enable maintenance mode",
+	"maintenance-mode-enabled": "Enabled",
+	"maintenance-mode-disabled": "Disabled",
 	"backgroundcolor" : "Background color",
 	"textcolor" : "Text color",
-	"message": "Message"
+	"message-extended": "Message"
 }
