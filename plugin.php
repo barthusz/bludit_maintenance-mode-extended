@@ -49,12 +49,19 @@ class pluginMaintenanceModeExtended extends Plugin {
 	public function beforeSiteLoad()
 	{
 		if ($this->getValue('enable')) {
-			$offline = "<div style='height: 100%; margin: 0; padding: 0; background:".$this->getValue('bgcolor')." ; color: ".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
-			$offline .= "<h1>".$this->getValue('message')."</h1>";
-			$offline .= "</div>";
 
-			echo $offline;
-			exit();
+			$login = new Login();
+
+			if($login->role()!=='admin' && $login->role()!=='editor') {
+
+				$offline = "<div style='height: 100%; margin: 0; padding: 0; background:".$this->getValue('bgcolor')." ; color: ".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
+				$offline .= "<h1>".$this->getValue('message')."</h1>";
+				$offline .= "</div>";
+
+				echo $offline;
+				exit();
+			}
+
 		}
 	}
 }

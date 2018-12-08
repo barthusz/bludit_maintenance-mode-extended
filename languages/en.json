@@ -2,7 +2,7 @@
 	"plugin-data":
 	{
 		"name": "Maintenance mode Extended",
-		"description": "Maintenance mode extended with some more configuration options."
+		"description": "This plugin offers more configurable options then the standard plugin. It also offers the possibility for logged in administrators or editors to view the frontend of the site."
 	},
 
 	"enable-maintenance-mode-extended": "Enable maintenance mode",
