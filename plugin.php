@@ -46,7 +46,7 @@ class pluginMaintenanceModeExtended extends Plugin {
 		return $html;
 	}
 
-	public function beforeAll()
+	public function beforeSiteLoad()
 	{
 		if ($this->getValue('enable')) {
 			$offline = "<div style='height: 100%; margin: 0; padding: 0; background:".$this->getValue('bgcolor')." ; color: ".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
