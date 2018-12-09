@@ -1,6 +1,10 @@
 <?php
 
 class pluginMaintenanceModeExtended extends Plugin {
+	
+	private $loadOnController = array(
+		'configure-plugin'
+	    );
 
 	public function init()
 	{
@@ -10,6 +14,20 @@ class pluginMaintenanceModeExtended extends Plugin {
 			'textcolor'=>'#ffffff',
 			'bgcolor'=>'#00b1b3'
 		);
+	}
+	
+	public function adminBodyEnd()
+	{
+
+        if (in_array($GLOBALS['ADMIN_CONTROLLER'], $this->loadOnController)) {
+		    global $url;
+            $slug = basename( $url->uri());
+            if($slug!=get_class($this)) return false;      
+		    $html = '<script src="'.$this->htmlPath().'js/jscolor.js"></script>';
+            return $html;
+		}
+        return false;
+
 	}
 
 	public function form()
@@ -30,12 +48,12 @@ class pluginMaintenanceModeExtended extends Plugin {
 
 		$html .= '<div>';
 		$html .= '<label>'.$L->get('Backgroundcolor').'</label>';
-		$html .= '<input name="bgcolor" id="bgcolor" type="text" value="'.$this->getValue('bgcolor').'">';
+		$html .= '<input name="bgcolor" id="bgcolor" class="jscolor" type="text" value="'.$this->getValue('bgcolor').'">';
 		$html .= '</div>';
 
 		$html .= '<div>';
 		$html .= '<label>'.$L->get('Textcolor').'</label>';
-		$html .= '<input name="textcolor" id="textcolor" type="text" value="'.$this->getValue('textcolor').'">';
+		$html .= '<input name="textcolor" id="textcolor" class="jscolor" type="text" value="'.$this->getValue('textcolor').'">';
 		$html .= '</div>';
 
 		$html .= '<div>';
@@ -54,7 +72,7 @@ class pluginMaintenanceModeExtended extends Plugin {
 
 			if($login->role()!=='admin' && $login->role()!=='editor') {
 
-				$offline = "<div style='height: 100%; margin: 0; padding: 0; background:".$this->getValue('bgcolor')." ; color: ".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
+				$offline = "<div style='height: 100%; margin: 0; padding: 0; background: #".$this->getValue('bgcolor')." ; color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
 				$offline .= "<h1>".$this->getValue('message')."</h1>";
 				$offline .= "</div>";
 
