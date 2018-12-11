@@ -88,26 +88,26 @@ class pluginMaintenanceModeExtended extends Plugin {
 
 				$offline = "<html>\r\n";
 				$offline .= "<head>\r\n";
-				$offline .= Theme::metaTags('title')."\r\n";
+				$offline .= Theme::metaTags('title');
 				$offline .= "<style>\r\n";
 				$offline .= "html {margin:0;padding:0;";
 				if ($this->getValue('image') !=='') {
 					$offline .= "background: url(".$this->getValue('image').") no-repeat center center fixed;";
-					$offline .= "-webkit-background-size: cover;\r\n";
-					$offline .= "-moz-background-size: cover;\r\n";
-					$offline .= "-o-background-size: cover;\r\n";
-					$offline .= " background-size: cover;\r\n";
+					$offline .= " -webkit-background-size: cover;";
+					$offline .= " -moz-background-size: cover;";
+					$offline .= " -o-background-size: cover;";
+					$offline .= " background-size: cover;";
 				}
 				$offline .=	"}\r\n";
-				$offline .= "body {margin:0;padding:0;}";
+				$offline .= "body {margin:0;padding:0;}\r\n";
 				$offline .= "</style>\r\n";
 				$offline .= "</head>\r\n";
 				$offline .= "<body>\r\n";
 				$offline .= "<div style='height: 100%; margin: 0; padding: 0;";
 				if ($this->getValue('image') =='') {
-				 $offline .= "background: #".$this->getValue('bgcolor').";";
+				 $offline .= " background: #".$this->getValue('bgcolor').";";
 				} 
-				$offline .= "color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>\r\n";
+				$offline .= " color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>\r\n";
 				$offline .= "<h1>".$this->getValue('message')."</h1>\r\n";
 				$offline .= "</div>\r\n";
 				$offline .= "</body>\r\n";
