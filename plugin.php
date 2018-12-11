@@ -72,9 +72,19 @@ class pluginMaintenanceModeExtended extends Plugin {
 
 			if($login->role()!=='admin' && $login->role()!=='editor') {
 
-				$offline = "<div style='height: 100%; margin: 0; padding: 0; background: #".$this->getValue('bgcolor')." ; color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>";
-				$offline .= "<h1>".$this->getValue('message')."</h1>";
-				$offline .= "</div>";
+				$offline = "<html>\r\n";
+				$offline .= "<head>\r\n";
+				$offline .= Theme::metaTags('title')."\r\n";
+				$offline .= "<style>\r\n";
+				$offline .= "html, body {margin:0;padding:0;}\r\n";
+				$offline .= "</style>\r\n";
+				$offline .= "</head>\r\n";
+				$offline .= "<body>\r\n";
+				$offline .= "<div style='height: 100%; margin: 0; padding: 0; background: #".$this->getValue('bgcolor')." ; color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>\r\n";
+				$offline .= "<h1>".$this->getValue('message')."</h1>\r\n";
+				$offline .= "</div>\r\n";
+				$offline .= "</body>\r\n";
+				$offline .= "</html>\r\n";
 
 				echo $offline;
 				exit();
