@@ -38,6 +38,8 @@ class pluginMaintenanceModeExtended extends Plugin {
 		$html .= $this->description();
 		$html .= '</div>';
 
+		$html .= '<div style="width: 80%; float:left;">';
+
 		$html .= '<div>';
 		$html .= '<label>'.$L->get('Enable maintenance mode extended').'</label>';
 		$html .= '<select name="enable">';
@@ -59,6 +61,12 @@ class pluginMaintenanceModeExtended extends Plugin {
 		$html .= '<div>';
 		$html .= '<label>'.$L->get('Message extended').'</label>';
 		$html .= '<input name="message" id="jsmessage" type="text" value="'.$this->getValue('message').'">';
+		$html .= '</div>';
+
+		$html .= '</div>';
+
+		$html .= '<div style="width: 20%; float:left; text-align: right;">';
+		$html .= '<img src="'.$this->htmlPath().'img/maintenance.png">';
 		$html .= '</div>';
 
 		return $html;
