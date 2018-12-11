@@ -10,5 +10,6 @@
 	"maintenance-mode-disabled": "Disabled",
 	"backgroundcolor" : "Background color",
 	"textcolor" : "Text color",
+	"image" : "Or add an image url",
 	"message-extended": "Message"
 }

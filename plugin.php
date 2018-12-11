@@ -12,6 +12,7 @@ class pluginMaintenanceModeExtended extends Plugin {
 			'enable'=>false,
 			'message'=>'Temporarily down for maintenance.',
 			'textcolor'=>'#ffffff',
+			'image'=>'',
 			'bgcolor'=>'#00b1b3'
 		);
 	}
@@ -59,6 +60,11 @@ class pluginMaintenanceModeExtended extends Plugin {
 		$html .= '</div>';
 
 		$html .= '<div>';
+		$html .= '<label>'.$L->get('Image').'</label>';
+		$html .= '<input name="image" id="image" type="text" value="'.$this->getValue('image').'">';
+		$html .= '</div>';
+
+		$html .= '<div>';
 		$html .= '<label>'.$L->get('Message extended').'</label>';
 		$html .= '<input name="message" id="jsmessage" type="text" value="'.$this->getValue('message').'">';
 		$html .= '</div>';
@@ -84,11 +90,24 @@ class pluginMaintenanceModeExtended extends Plugin {
 				$offline .= "<head>\r\n";
 				$offline .= Theme::metaTags('title')."\r\n";
 				$offline .= "<style>\r\n";
-				$offline .= "html, body {margin:0;padding:0;}\r\n";
+				$offline .= "html {margin:0;padding:0;";
+				if ($this->getValue('image') !=='') {
+					$offline .= "background: url(".$this->getValue('image').") no-repeat center center fixed;";
+					$offline .= "-webkit-background-size: cover;\r\n";
+					$offline .= "-moz-background-size: cover;\r\n";
+					$offline .= "-o-background-size: cover;\r\n";
+					$offline .= " background-size: cover;\r\n";
+				}
+				$offline .=	"}\r\n";
+				$offline .= "body {margin:0;padding:0;}";
 				$offline .= "</style>\r\n";
 				$offline .= "</head>\r\n";
 				$offline .= "<body>\r\n";
-				$offline .= "<div style='height: 100%; margin: 0; padding: 0; background: #".$this->getValue('bgcolor')." ; color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>\r\n";
+				$offline .= "<div style='height: 100%; margin: 0; padding: 0;";
+				if ($this->getValue('image') =='') {
+				 $offline .= "background: #".$this->getValue('bgcolor').";";
+				} 
+				$offline .= "color: #".$this->getValue('textcolor')."; font-family: sans-serif; display: flex; align-items: center; justify-content: center;'>\r\n";
 				$offline .= "<h1>".$this->getValue('message')."</h1>\r\n";
 				$offline .= "</div>\r\n";
 				$offline .= "</body>\r\n";
